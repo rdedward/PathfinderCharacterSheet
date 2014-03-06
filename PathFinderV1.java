@@ -63,30 +63,17 @@ public class PathFinderV1 extends JFrame //implements Accessible
 
 		//Build the first menu.
 		file = new JMenu("File");
-		file.setMnemonic(KeyEvent.VK_A);
-		file.getAccessibleContext().setAccessibleDescription(
- 		       "The only menu in this program that has menu items");
 		menuBar.add(file);
 
 		//a group of JMenuItems
-		menuItem = new JMenuItem("Load Character",
-		                         KeyEvent.VK_T);
-		menuItem.setAccelerator(KeyStroke.getKeyStroke(
- 		       KeyEvent.VK_1, ActionEvent.ALT_MASK));
-		menuItem.getAccessibleContext().setAccessibleDescription(
- 		       "This doesn't really do anything");
+		menuItem = new JMenuItem("Load Character");
 		mlcHandler = new ManualLoadCharacterHandler();
             	menuItem.addActionListener(mlcHandler);
 		file.add(menuItem);
 		
 		menuItem = new JMenuItem("New Character");
-		menuItem.setMnemonic(KeyEvent.VK_B);
 		ncHandler = new NewCharacterHandler();
             	menuItem.addActionListener(ncHandler);
-		file.add(menuItem);
-
-		menuItem = new JMenuItem(new ImageIcon("images/middle.gif"));
-		menuItem.setMnemonic(KeyEvent.VK_D);
 		file.add(menuItem);
 
 
@@ -97,7 +84,6 @@ public class PathFinderV1 extends JFrame //implements Accessible
 		file.add(cbMenuItem);
 
 		cbMenuItem = new JCheckBoxMenuItem("Force Mode");
-		cbMenuItem.setMnemonic(KeyEvent.VK_H);
                 fmHandler = new ForceModeHandler();
 		cbMenuItem.addActionListener(fmHandler);
 		file.add(cbMenuItem);
@@ -105,7 +91,6 @@ public class PathFinderV1 extends JFrame //implements Accessible
 		//a submenu
 		file.addSeparator();
 		submenu = new JMenu("Saved Accounts");
-		submenu.setMnemonic(KeyEvent.VK_S);
                 int count = 1;
                 String filename = "Accounts\\character"+count+".dat";
                 File f = new File(filename);
